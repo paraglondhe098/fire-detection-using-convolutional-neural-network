@@ -33,7 +33,7 @@ if __name__ == '__main__':
     model = tf.keras.models.load_model(modelpath)
     PATH = 'Test_images/'
     imglist = os.listdir(PATH)
-    imname = imglist[3]  #<-----(Enter image name here to predict)---------
+    imname = imglist[2]  #<-----(Enter image name (With Extension) here to predict)---------
     impath = os.path.join(PATH,imname)
     img = cv.imread(impath)
     try :
