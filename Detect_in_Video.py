@@ -31,7 +31,7 @@ if __name__ == '__main__':
     modelslist = os.listdir('Models')
     modelpath = os.path.join('Models',modelslist[-1])
     model = tf.keras.models.load_model(modelpath)
-    capture = cv.VideoCapture(0)
+    capture = cv.VideoCapture(0) #<---- You can add video path here
     while True:
         try:
             istrue, frame = capture.read()

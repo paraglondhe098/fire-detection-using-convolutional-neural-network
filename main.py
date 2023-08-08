@@ -29,19 +29,31 @@ def predictstr(impath,model):
 
 if __name__ == '__main__':
     modelslist = os.listdir('Models')
-    modelpath = os.path.join('Models',modelslist[-1])
+    modelpath = os.path.join('Models',modelslist[-1]) # To choose latest model
     model = tf.keras.models.load_model(modelpath)
     PATH = 'Test_images/'
     imglist = os.listdir(PATH)
-    imname = imglist[2]  #<-----(Enter image name (With Extension) here to predict)---------
-    impath = os.path.join(PATH,imname)
-    img = cv.imread(impath)
+    # print(imglist)
+    itr = 1
+    print("Choose index of the image to be detected :")
+    for i in imglist:
+        print(f"{itr}) {i}")
+        itr+=1
+    x = int(input("-->  "))-1
     try :
-        cv.putText(img, predictstr(impath, model), (20, 30), cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), thickness=2)
-        cv.imshow('Result', img)
-    except cv.error :
+        imname = imglist[x]  #<-----(Enter image name (With Extension) here to predict)---------
+        impath = os.path.join(PATH,imname)
+        img = cv.imread(impath)
+        try :
+            cv.putText(img, predictstr(impath, model), (20, 30), cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), thickness=2)
+            cv.imshow('Result', img)
+        except cv.error :
+            img = np.zeros((500, 500, 3), dtype='uint8')
+            cv.putText(img, "INVALID IMAGE", (125, 250), cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), thickness=2)
+            cv.imshow('Result', img)
+    except IndexError :
         img = np.zeros((500, 500, 3), dtype='uint8')
-        cv.putText(img, "INVALID IMAGE", (125, 250), cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), thickness=2)
+        cv.putText(img, "INVALID INDEX", (125, 250), cv.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), thickness=2)
         cv.imshow('Result', img)
     cv.waitKey(0)
     # print(predictstr(impath,model))
