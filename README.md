@@ -47,14 +47,17 @@ The project repository is organized as follows:
 |
 ├── main.py                #  Main Program ( Run using Python interpreter)        
 |
+|
 ├── Detect_in_videos.py                #  Detect fire live using a webcam
+|
 |
 ├── fire-detection.ipynb               # Jupyter notebook containing the main code and analysis
 │ 
 │
 ├── models/
-│   └── cnn_model.keras        # Pre-trained CNN model for fire detection
+│   └── {List of models made with date in .keras format}        # Pre-trained CNN model for fire detection
 │
+|
 ├── README.md              # Project documentation (you are here)
 │
 └── requirements.txt       # List of project dependencies
@@ -79,15 +82,19 @@ pip install -r requirements.txt
 
 4. Open the `fire-detection.ipynb` notebook using Jupyter Notebook or Jupyter Lab to explore the data, train the CNN model, and perform fire detection on the images.
 
+5. Add images to be tested in the Test_images directory.
+
+6. Run main.py to check the performance of model on any image.
+
 ## Model Performance
 
-The CNN model has been trained on the dataset, and the pre-trained model `cnn_model.keras` is provided in the `models/` directory.
-The model achieved an accuracy of 82% on the test set and demonstrated its effectiveness in detecting fire in images.
+The CNN model has been trained on the dataset, and the pre-trained model is provided in the `models/` directory.
+The latest model achieved an accuracy of 82% on the test set and demonstrated its effectiveness in detecting fire in images.
 
 ## Conclusion
 
 This project showcases the implementation of a CNN-based fire detection model for images. The model can be a valuable tool for early fire detection and prevention in various applications. You can further enhance and customize the project by experimenting with different CNN architectures, data augmentation techniques, and training strategies.
 
-Feel free to use, modify, and extend this project for your own applications. If you have any questions or suggestions, please don't hesitate to reach out to the project contributors.
+Feel free to use, modify, and extend this project for your own applications. If you have any questions or suggestions, please don't hesitate to reach me out.
 
 Stay safe and vigilant against fires!
